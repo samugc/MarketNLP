@@ -1,0 +1,42 @@
+{
+  "data": {
+    "dataset": "zeroshot/twitter-financial-news-sentiment",
+    "revision": "ccbe24de388e287beb92dd393a335c376b350ac3",
+    "split": "published train; published validation used as final test, no tuning",
+    "cleaning": "remove URLs, collapse whitespace, case-insensitive deduplication; remove within-split label conflicts and test texts seen in cleaned train",
+    "source_rows": {
+      "train": 9543,
+      "test": 2388
+    },
+    "rows": {
+      "train": 9431,
+      "test": 2345
+    },
+    "class_counts": {
+      "train": {
+        "negative": 1428,
+        "neutral": 6096,
+        "positive": 1907
+      },
+      "test": {
+        "negative": 338,
+        "neutral": 1534,
+        "positive": 473
+      }
+    },
+    "sha256": {
+      "train": "02d509814dd4ecb4d4599a7e590d0ae1412be9b6461770b6fcdfb62236fc9c90",
+      "test": "3a591556dad6a9fee5d3b43f69ff5b016b7f2b564759cca491fd1e4512f58f26"
+    }
+  },
+  "models": {
+    "baseline": {
+      "accuracy": 0.8042643923240939,
+      "macro_f1": 0.6983591846965225
+    },
+    "finbert": {
+      "accuracy": 0.7138592750533049,
+      "macro_f1": 0.658442377485026
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "model": "finbert",
+  "data": {
+    "dataset": "zeroshot/twitter-financial-news-sentiment",
+    "revision": "ccbe24de388e287beb92dd393a335c376b350ac3",
+    "split": "published train; published validation used as final test, no tuning",
+    "cleaning": "remove URLs, collapse whitespace, case-insensitive deduplication; remove within-split label conflicts and test texts seen in cleaned train",
+    "source_rows": {
+      "train": 9543,
+      "test": 2388
+    },
+    "rows": {
+      "train": 9431,
+      "test": 2345
+    },
+    "class_counts": {
+      "train": {
+        "negative": 1428,
+        "neutral": 6096,
+        "positive": 1907
+      },
+      "test": {
+        "negative": 338,
+        "neutral": 1534,
+        "positive": 473
+      }
+    },
+    "sha256": {
+      "train": "02d509814dd4ecb4d4599a7e590d0ae1412be9b6461770b6fcdfb62236fc9c90",
+      "test": "3a591556dad6a9fee5d3b43f69ff5b016b7f2b564759cca491fd1e4512f58f26"
+    }
+  },
+  "settings": {
+    "model": "ProsusAI/finbert",
+    "revision": "4556d13015211d73dccd3fdd39d39232506f3e43",
+    "id2label": {
+      "0": "positive",
+      "1": "negative",
+      "2": "neutral"
+    },
+    "device": "mps",
+    "batch_size": 32,
+    "max_length": 512,
+    "fine_tuned_here": false
+  },
+  "metrics": {
+    "accuracy": 0.7138592750533049,
+    "macro_f1": 0.658442377485026,
+    "per_class": {
+      "negative": {
+        "precision": 0.4819047619047619,
+        "recall": 0.7485207100591716,
+        "f1-score": 0.5863267670915412,
+        "support": 338.0
+      },
+      "neutral": {
+        "precision": 0.8471290082028337,
+        "recall": 0.7405475880052151,
+        "f1-score": 0.7902608695652173,
+        "support": 1534.0
+      },
+      "positive": {
+        "precision": 0.5949895615866388,
+        "recall": 0.6025369978858351,
+        "f1-score": 0.5987394957983193,
+        "support": 473.0
+      },
+      "accuracy": 0.7138592750533049,
+      "macro avg": {
+        "precision": 0.6413411105647447,
+        "recall": 0.6972017653167407,
+        "f1-score": 0.658442377485026,
+        "support": 2345.0
+      },
+      "weighted avg": {
+        "precision": 0.7436289001012522,
+        "recall": 0.7138592750533049,
+        "f1-score": 0.722235566184473,
+        "support": 2345.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        253,
+        73,
+        12
+      ],
+      [
+        216,
+        1136,
+        182
+      ],
+      [
+        56,
+        132,
+        285
+      ]
+    ],
+    "label_order": [
+      "negative",
+      "neutral",
+      "positive"
+    ],
+    "n_test": 2345
+  },
+  "environment": {
+    "python": "3.13.5",
+    "scikit-learn": "1.9.1",
+    "torch": "2.14.1",
+    "transformers": "5.19.0",
+    "huggingface-hub": "1.33.0"
+  }
+}

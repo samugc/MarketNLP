@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marketnlp"
+version = "0.1.0"
+description = "Financial sentiment classification with a lexical baseline and FinBERT"
+requires-python = ">=3.11"
+dependencies = [
+    "scikit-learn>=1.5,<2",
+    "huggingface-hub>=0.26,<2",
+    "torch>=2.6,<3",
+    "transformers>=4.45,<6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
