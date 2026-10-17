@@ -2,6 +2,15 @@
 
 Financial sentiment classification with a TF-IDF + Logistic Regression baseline and pretrained FinBERT. Both models use the same cleaned test texts and the same evaluation code. The baseline is trained here; FinBERT is used for inference only.
 
+## Results at a glance
+
+| Model | Accuracy | Macro F1 |
+| --- | ---: | ---: |
+| TF-IDF + Logistic Regression | **0.8043** | **0.6984** |
+| FinBERT, no adaptation | 0.7139 | 0.6584 |
+
+The baseline performs better overall on this split, while FinBERT recovers more negative examples. These results compare an in-domain trained baseline with transfer inference, not model architectures under equal training conditions.
+
 ## Approach
 
 ```text
@@ -19,12 +28,7 @@ The baseline fits word unigram/bigram TF-IDF and Logistic Regression inside a sc
 
 [ProsusAI/finbert](https://huggingface.co/ProsusAI/finbert) was pretrained and sentiment-fine-tuned by its authors, including on Financial PhraseBank. That is why this evaluation does not use a new split of PhraseBank. Predictions are mapped through the model's actual `id2label` configuration. Inference uses batches, `eval()` and disabled gradients, with truncation at 512 tokens.
 
-## Results
-
-| Model | Accuracy | Macro F1 |
-| --- | ---: | ---: |
-| TF-IDF + Logistic Regression | 0.8043 | 0.6984 |
-| FinBERT, no adaptation | 0.7139 | 0.6584 |
+## Detailed results
 
 The baseline performs better overall on this split. FinBERT has higher negative-class recall (0.749 versus 0.426), but lower precision for that class. Neutral texts make up 65.4% of the test set, so accuracy alone hides minority-class errors.
 
